@@ -89,6 +89,7 @@ echo "Reading in list of repositories from Bitbucket repositories/$account\n\n";
 
 $api = new BitBucketAPI($username, $password);
 $repos = $api->listRepositories($account);
+$repos->values = array_reverse($repos->values);
 echo "\n";
 
 $repoPattern = '!https://bitbucket.org/\!api/2.0/repositories/' . $account . '/(.+)/hooks$!';
